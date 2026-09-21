@@ -11,7 +11,11 @@ import type {
 } from 'n8n-workflow';
 import { NodeApiError, NodeConnectionTypes } from 'n8n-workflow';
 
-import { influencerHeroApiRequest, loadIdNameOptions } from './GenericFunctions';
+import {
+	getApiErrorMessage,
+	influencerHeroApiRequest,
+	loadIdNameOptions,
+} from './GenericFunctions';
 
 export class InfluencerHeroTrigger implements INodeType {
 	description: INodeTypeDescription = {
@@ -156,7 +160,12 @@ export class InfluencerHeroTrigger implements INodeType {
 				} catch (error) {
 					// 409 means this exact webhook is already registered, which is what we want
 					if ((error as { httpCode?: string }).httpCode !== '409') {
-						throw new NodeApiError(this.getNode(), error as JsonObject);
+						const apiErrorMessage = getApiErrorMessage(error);
+						throw new NodeApiError(
+							this.getNode(),
+							error as JsonObject,
+							apiErrorMessage ? { message: apiErrorMessage } : {},
+						);
 					}
 				}
 

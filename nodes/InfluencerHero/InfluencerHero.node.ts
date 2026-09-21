@@ -10,7 +10,12 @@ import type {
 } from 'n8n-workflow';
 import { NodeApiError, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
 
-import { influencerHeroApiRequest, loadIdNameOptions, removeEmptyValues } from './GenericFunctions';
+import {
+	getApiErrorMessage,
+	influencerHeroApiRequest,
+	loadIdNameOptions,
+	removeEmptyValues,
+} from './GenericFunctions';
 import {
 	fieldProperties,
 	operationProperties,
@@ -155,9 +160,10 @@ export class InfluencerHero implements INodeType {
 
 				returnData.push({ json: responseData, pairedItem: { item: i } });
 			} catch (error) {
+				const apiErrorMessage = getApiErrorMessage(error);
 				if (this.continueOnFail()) {
 					returnData.push({
-						json: { error: (error as Error).message },
+						json: { error: apiErrorMessage ?? (error as Error).message },
 						pairedItem: { item: i },
 					});
 					continue;
@@ -165,7 +171,10 @@ export class InfluencerHero implements INodeType {
 				if (error instanceof NodeOperationError) {
 					throw new NodeOperationError(this.getNode(), error, { itemIndex: i });
 				}
-				throw new NodeApiError(this.getNode(), error as JsonObject, { itemIndex: i });
+				throw new NodeApiError(this.getNode(), error as JsonObject, {
+					itemIndex: i,
+					...(apiErrorMessage ? { message: apiErrorMessage } : {}),
+				});
 			}
 		}
 

@@ -50,3 +50,16 @@ export function removeEmptyValues(data: IDataObject): IDataObject {
 	}
 	return cleaned;
 }
+
+// The API explains failures in `error_message` (e.g. "Deal not found"), which n8n does not pick up on its own
+export function getApiErrorMessage(error: unknown): string | undefined {
+	const candidate = error as {
+		response?: { data?: IDataObject; body?: IDataObject };
+		context?: { data?: IDataObject };
+		error?: IDataObject;
+	};
+	const body =
+		candidate.response?.data ?? candidate.response?.body ?? candidate.context?.data ?? candidate.error;
+	const message = body?.error_message ?? body?.message;
+	return typeof message === 'string' && message ? message : undefined;
+}

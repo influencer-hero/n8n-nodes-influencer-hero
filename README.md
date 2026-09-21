@@ -62,6 +62,7 @@ Built with the n8n community node tooling (`n8nNodesApiVersion` 1).
 - **Register a click** adds clicks on top of the current total. Send only new clicks, not a running total.
 - **Register a referral** ignores an order ID that was already registered for the same order platform, so retries are safe. Keep **Order Platform** the same for every order of a store.
 - Clicks and referrals need a collaboration. Create the deal with **Create Collaboration** switched on, or create the collaboration in Influencer Hero first.
+- The trigger needs an n8n instance with a public webhook URL. Influencer Hero rejects `localhost` and private addresses, so set `WEBHOOK_URL` (or use a tunnel) when you run n8n locally.
 - Most requests are limited per minute and per account. When the limit is hit the API answers with status 429 and a `Retry-After` header.
 
 ## Resources
