@@ -1,0 +1,18 @@
+{
+	"node": "n8n-nodes-influencer-hero.influencerHero",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Marketing", "Sales"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://github.com/influencer-hero/n8n-nodes-influencer-hero#credentials"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://github.com/influencer-hero/n8n-nodes-influencer-hero#readme"
+			}
+		]
+	}
+}
