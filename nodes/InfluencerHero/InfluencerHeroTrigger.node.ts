@@ -70,11 +70,6 @@ export class InfluencerHeroTrigger implements INodeType {
 						description: 'A discount code was assigned or changed',
 					},
 					{
-						name: 'Post Statistics Updated',
-						value: 'media_kpi_updated',
-						description: 'The views, likes or comments of a tracked post were refreshed',
-					},
-					{
 						name: 'New Email Sent',
 						value: 'new_email_sent',
 						description: 'An email was sent to an influencer',
@@ -103,6 +98,11 @@ export class InfluencerHeroTrigger implements INodeType {
 						name: 'New Payout Request',
 						value: 'new_payout_request',
 						description: 'A payout was requested',
+					},
+					{
+						name: 'Post Statistics Updated',
+						value: 'media_kpi_updated',
+						description: 'The views, likes or comments of a tracked post were refreshed',
 					},
 					{
 						name: 'Product Sent',
