@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/influencer-hero/n8n-nodes-influencer-hero.git"
+    "url": "git+https://github.com/influencer-hero/n8n-nodes-influencer-hero.git"
   },
   "scripts": {
     "build": "n8n-node build",
