@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-influencer-hero",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "n8n community node for Influencer Hero: trigger workflows on influencer events, create deals and track clicks and sales",
   "license": "MIT",
   "homepage": "https://www.influencer-hero.com",
