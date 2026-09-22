@@ -70,7 +70,7 @@ export class InfluencerHeroTrigger implements INodeType {
 						description: 'A discount code was assigned or changed',
 					},
 					{
-						name: 'Media KPIs Updated',
+						name: 'Post Statistics Updated',
 						value: 'media_kpi_updated',
 						description: 'The views, likes or comments of a tracked post were refreshed',
 					},
@@ -161,9 +161,8 @@ export class InfluencerHeroTrigger implements INodeType {
 					// 409 means this exact webhook is already registered, which is what we want
 					if ((error as { httpCode?: string }).httpCode !== '409') {
 						const apiErrorMessage = getApiErrorMessage(error);
-						if (error instanceof NodeApiError) {
-							if (apiErrorMessage) error.message = apiErrorMessage;
-							throw error;
+						if (apiErrorMessage && error instanceof NodeApiError) {
+							error.message = apiErrorMessage;
 						}
 						throw new NodeApiError(
 							this.getNode(),

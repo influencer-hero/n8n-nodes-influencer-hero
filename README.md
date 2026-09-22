@@ -26,7 +26,7 @@ Starts a workflow when one of these events happens in your Influencer Hero accou
 - Commission Updated
 - Custom Link Updated
 - Discount Code Updated
-- Media KPIs Updated
+- Post Statistics Updated
 - New Email Sent
 - New Influencer Order
 - New Influencer Post

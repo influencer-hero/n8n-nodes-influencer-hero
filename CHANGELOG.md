@@ -5,6 +5,7 @@
 - Create Deal: Platform is a required field (the API needs it)
 - Error messages from Influencer Hero are shown in every n8n version
 - Brands without a name show as "Brand <ID>" in dropdowns
+- Trigger event "Media KPIs Updated" renamed to "Post Statistics Updated"
 
 ## 0.1.2
 

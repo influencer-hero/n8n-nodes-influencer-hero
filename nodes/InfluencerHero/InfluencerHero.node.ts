@@ -172,10 +172,10 @@ export class InfluencerHero implements INodeType {
 				if (error instanceof NodeOperationError) {
 					throw new NodeOperationError(this.getNode(), error, { itemIndex: i });
 				}
-				// the request helper already wrapped the error; re-wrapping keeps the original, so set the message on it
-				if (error instanceof NodeApiError) {
-					if (apiErrorMessage) error.message = apiErrorMessage;
-					throw error;
+				// the request helper may already have wrapped the error; NodeApiError then hands back that
+				// same instance, so the message has to be set on the error itself
+				if (apiErrorMessage && error instanceof NodeApiError) {
+					error.message = apiErrorMessage;
 				}
 				throw new NodeApiError(this.getNode(), error as JsonObject, {
 					itemIndex: i,
