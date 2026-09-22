@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- Package author set to Influencer Hero
+
 ## 0.1.1
 
 - Published from GitHub Actions with npm provenance

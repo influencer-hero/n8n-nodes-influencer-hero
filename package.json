@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-influencer-hero",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "n8n community node for Influencer Hero: trigger workflows on influencer events, create deals and track clicks and sales",
   "license": "MIT",
   "homepage": "https://www.influencer-hero.com",
@@ -8,8 +8,8 @@
     "n8n-community-node-package"
   ],
   "author": {
-    "name": "Vusal Abdullayev",
-    "email": "85983771+vusallyv@users.noreply.github.com"
+    "name": "Influencer Hero",
+    "email": "dev@influencer-hero.com"
   },
   "repository": {
     "type": "git",
