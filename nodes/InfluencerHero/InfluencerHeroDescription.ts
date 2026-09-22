@@ -165,6 +165,20 @@ const dealFields: INodeProperties[] = [
 		description: 'Social media username of the influencer, without the @',
 	},
 	{
+		displayName: 'Platform',
+		name: 'platform',
+		type: 'options',
+		options: [
+			{ name: 'Instagram', value: 'instagram' },
+			{ name: 'TikTok', value: 'tiktok' },
+			{ name: 'YouTube', value: 'youtube' },
+		],
+		default: 'instagram',
+		required: true,
+		displayOptions: { show: { resource: ['deal'], operation: ['create'] } },
+		description: 'Social platform of the handle',
+	},
+	{
 		displayName: 'Board Name or ID',
 		name: 'dealflow_id',
 		type: 'options',
@@ -234,17 +248,6 @@ const dealFields: INodeProperties[] = [
 			{ displayName: 'Last Name', name: 'last_name', type: 'string', default: '' },
 			{ displayName: 'Notes', name: 'notes', type: 'string', default: '' },
 			{ displayName: 'Phone Number', name: 'phone_nr', type: 'string', default: '' },
-			{
-				displayName: 'Platform',
-				name: 'platform',
-				type: 'options',
-				options: [
-					{ name: 'Instagram', value: 'instagram' },
-					{ name: 'TikTok', value: 'tiktok' },
-					{ name: 'YouTube', value: 'youtube' },
-				],
-				default: 'instagram',
-			},
 			{ displayName: 'Postcode', name: 'postcode', type: 'string', default: '' },
 			{ displayName: 'Region', name: 'region', type: 'string', default: '' },
 		],

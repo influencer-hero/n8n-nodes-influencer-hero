@@ -161,6 +161,10 @@ export class InfluencerHeroTrigger implements INodeType {
 					// 409 means this exact webhook is already registered, which is what we want
 					if ((error as { httpCode?: string }).httpCode !== '409') {
 						const apiErrorMessage = getApiErrorMessage(error);
+						if (error instanceof NodeApiError) {
+							if (apiErrorMessage) error.message = apiErrorMessage;
+							throw error;
+						}
 						throw new NodeApiError(
 							this.getNode(),
 							error as JsonObject,

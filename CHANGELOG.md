@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3
+
+- Create Deal: Platform is a required field (the API needs it)
+- Error messages from Influencer Hero are shown in every n8n version
+- Brands without a name show as "Brand <ID>" in dropdowns
+
 ## 0.1.2
 
 - Package author set to Influencer Hero

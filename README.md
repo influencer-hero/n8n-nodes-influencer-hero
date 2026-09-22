@@ -39,7 +39,7 @@ Starts a workflow when one of these events happens in your Influencer Hero accou
 
 | Resource | Operation | What it does |
 | --- | --- | --- |
-| Deal | Create | Adds an influencer to a board as a new deal, optionally with a collaboration |
+| Deal | Create | Adds an influencer (handle + platform) to a board as a new deal, optionally with a collaboration |
 | Deal | Get | Finds a deal by deal ID or influencer handle |
 | Referral | Register | Attributes an order to an influencer collaboration |
 | Click | Register | Adds link clicks to an influencer collaboration |

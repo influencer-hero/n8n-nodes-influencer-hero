@@ -38,7 +38,8 @@ export async function loadIdNameOptions(
 		id: string | number;
 		name: string;
 	}>;
-	return items.map((item) => ({ name: item.name, value: item.id }));
+	// a brand without a name would show as a blank row
+	return items.map((item) => ({ name: item.name || `Brand ${item.id}`, value: item.id }));
 }
 
 // Drops empty values so optional fields the user left blank are not sent to the API

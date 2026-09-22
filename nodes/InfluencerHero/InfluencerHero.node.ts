@@ -71,6 +71,7 @@ export class InfluencerHero implements INodeType {
 					const createCollab = this.getNodeParameter('create_collab', i) as boolean;
 					const body: IDataObject = {
 						influencer_handle: this.getNodeParameter('influencer_handle', i) as string,
+						platform: this.getNodeParameter('platform', i) as string,
 						dealflow_id: this.getNodeParameter('dealflow_id', i) as string,
 						create_collab: createCollab,
 						...removeEmptyValues(this.getNodeParameter('additionalFields', i) as IDataObject),
@@ -170,6 +171,11 @@ export class InfluencerHero implements INodeType {
 				}
 				if (error instanceof NodeOperationError) {
 					throw new NodeOperationError(this.getNode(), error, { itemIndex: i });
+				}
+				// the request helper already wrapped the error; re-wrapping keeps the original, so set the message on it
+				if (error instanceof NodeApiError) {
+					if (apiErrorMessage) error.message = apiErrorMessage;
+					throw error;
 				}
 				throw new NodeApiError(this.getNode(), error as JsonObject, {
 					itemIndex: i,
