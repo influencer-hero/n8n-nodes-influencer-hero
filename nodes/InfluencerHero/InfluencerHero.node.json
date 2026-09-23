@@ -2,7 +2,7 @@
 	"node": "n8n-nodes-influencer-hero.influencerHero",
 	"nodeVersion": "1.0",
 	"codexVersion": "1.0",
-	"categories": ["Marketing", "Sales"],
+	"categories": ["Marketing & Content", "Sales"],
 	"resources": {
 		"credentialDocumentation": [
 			{

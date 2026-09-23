@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4
+
+- Node category set to "Marketing & Content" (requested by the n8n review)
+
 ## 0.1.3
 
 - Create Deal: Platform is a required field (the API needs it)
